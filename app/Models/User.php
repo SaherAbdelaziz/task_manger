@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin',
     ];
 
     /**
@@ -41,4 +42,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function tasksAssignedTo()
+    {
+        return $this->hasMany(Task::class, 'assigned_to_id');
+    }
+
+    public function tasksAssignedBy()
+    {
+        return $this->hasMany(Task::class, 'assigned_by_id');
+    }
+
+    public function scopeAdmins($query)
+    {
+        return $query->where('is_admin', 1);
+    }
+
+    public function scopeNonAdmins($query)
+    {
+        return $query->where('is_admin', 0);
+    }
 }
