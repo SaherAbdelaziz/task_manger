@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Models\Statistics;
+use App\Models\Statistic;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
@@ -39,7 +39,7 @@ class UpdateStatisticsJob implements ShouldQueue
         foreach ($users as $user) {
             $count = Task::where('assigned_to_id', $user->id)->count();
 
-            $statistic = Statistics::firstOrCreate(
+            $statistic = Statistic::firstOrCreate(
                 ['user_id' => $user->id],
                 ['count' => $count]
             );

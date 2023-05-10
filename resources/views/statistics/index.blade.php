@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('Task Statistics') }}</div>
+                    <div class="card-header">{{ __('Task Statistic') }}</div>
 
                     <div class="card-body">
                         <table class="table">

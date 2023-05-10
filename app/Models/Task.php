@@ -35,6 +35,6 @@ class Task extends Model
 
     public function statistics()
     {
-        return $this->hasOne(Statistics::class);
+        return $this->hasOne(Statistic::class);
     }
 }

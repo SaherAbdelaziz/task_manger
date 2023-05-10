@@ -36,7 +36,7 @@
                             @if(Auth::user()->is_admin)
                                 <a href="{{ route('tasks.create') }}" class="btn btn-primary">Create Task</a>
                             @endif
-                            <a href="{{ route('tasks.statistics') }}" class="btn btn-primary">Statistics</a>
+                            <a href="{{ route('statistics.index') }}" class="btn btn-primary">Statistics</a>
                         </div>
 
                     </div>

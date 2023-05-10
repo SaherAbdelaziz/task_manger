@@ -5,14 +5,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use App\Models\User;
-use App\Models\Statistics;
+use App\Models\Statistic;
+use App\Services\TaskService;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    private $tasksService;
+
+
+    public function __construct(TaskService $tasksService)
+    {
+        $this->tasksService = $tasksService;
+    }
+
     public function index()
     {
-        $tasks = Task::with('assignedTo', 'assignedBy')->paginate(10);
+        $tasks = $this->tasksService->getAllTasks();
         return view('tasks.index', compact('tasks'));
     }
 
@@ -32,17 +41,9 @@ class TaskController extends Controller
             'assigned_to_id' => 'required|exists:users,id',
             'assigned_by_id' => 'required|exists:users,id'
         ]);
-
-        $task = Task::create($request->all());
-
+        $task = $this->tasksService->createTask($request->all());
 
         return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
     }
 
-
-    public function statistics()
-    {
-        $statistics = Statistics::with('user')->orderByDesc('count')->paginate(10);
-        return view('tasks.statistics', compact('statistics'));
-    }
 }

@@ -65,6 +65,6 @@ class User extends Authenticatable
 
     public function statistics()
     {
-        return $this->hasOne(Statistics::class);
+        return $this->hasOne(Statistic::class);
     }
 }
