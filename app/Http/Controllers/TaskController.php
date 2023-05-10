@@ -35,11 +35,6 @@ class TaskController extends Controller
 
         $task = Task::create($request->all());
 
-        // Update statistics
-        $user = User::find($request->assigned_to_id);
-        $statistics = $user->statistics ?? new Statistics(['user_id' => $user->id]);
-        $statistics->count += 1;
-        $statistics->save();
 
         return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
     }
