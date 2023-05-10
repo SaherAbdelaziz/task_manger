@@ -62,4 +62,9 @@ class User extends Authenticatable
     {
         return $query->where('is_admin', 0);
     }
+
+    public function statistics()
+    {
+        return $this->hasOne(Statistics::class);
+    }
 }
