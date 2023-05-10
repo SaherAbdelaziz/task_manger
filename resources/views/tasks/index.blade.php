@@ -33,7 +33,7 @@
                             {{ $tasks->links() }}
                         </div>
                         <div class="d-flex justify-content-between">
-                            @if(!Auth::user()->is_admin)
+                            @if(Auth::user()->is_admin)
                                 <a href="{{ route('tasks.create') }}" class="btn btn-primary">Create Task</a>
                             @endif
                             <a href="{{ route('tasks.statistics') }}" class="btn btn-primary">Statistics</a>
