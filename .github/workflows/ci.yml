@@ -17,5 +17,12 @@ jobs:
           extensions: pdo_mysql
       - name: Install dependencies
         run: composer install
+      - name: Set up PostgreSQL
+        uses: aiven/setup-postgres@v1
+        with:
+          pg-version: '13'
+          pg-password: ${{ secrets.DB_PASSWORD }}
+          pg-database: task_manager
+          pg-user: postgres
       - name: Run tests
         run: vendor/bin/phpunit
