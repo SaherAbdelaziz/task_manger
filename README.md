@@ -12,15 +12,16 @@
 - create new task and assign it to a user
 - view statistics about tasks assigned for each user
 - view all tasks
+- only admins can create and assign tasks
 
 ## Running the project
-- simply too commands to run the project
-- php artisan db:seed --class=UsersTableSeeder --no-interaction [to seed the database with users] take care this would take a while
-- php artisan serve [to run the project]
+- simply two commands to run the project
+- 'php artisan db:seed --class=UsersTableSeeder --no-interaction' [to seed the database with users] take care this would take a while
+- 'php artisan serve' [to run the project]
 
 
 ## background jobs
 - to run the background jobs you need to run the following command
 -  php artisan schedule:work
-- this will run the background jobs every minute and you can change the time in the schedule function in the app/Console/Kernel.php file
+- this will run the background jobs every minute, and you can change the time in the schedule function in the app/Console/Kernel.php file
 
