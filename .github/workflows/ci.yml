@@ -11,9 +11,9 @@ jobs:
       postgres:
         image: postgres
         env:
-          DB_USERNAME: postgres
-          DB_PASSWORD: myStrongPass
-          DB_DATABASE: task_manager
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          POSTGRES_DB: task_manager
         ports:
           - 5432:5432
         options: >-
@@ -28,7 +28,9 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.0'
-          extensions: pdo_mysql
+          extensions: |
+            pdo_mysql
+            pdo_pgsql
       - name: Install dependencies
         run: composer install
       - name: Run tests
