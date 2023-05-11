@@ -11,6 +11,9 @@ jobs:
       postgres:
         image: postgres:13-alpine
         env:
+          DB_HOST: localhost
+          DB_USERNAME: postgres
+          DB_CONNECTION: pgsql
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: myStrongPass
           POSTGRES_DB: task_manager
