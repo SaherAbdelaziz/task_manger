@@ -14,22 +14,43 @@ class UsersTableSeeder extends Seeder
         $faker = FakerFactory::create();
 
         // Create 10000 users
-        for ($i = 1; $i <= 10; $i++) {
-            User::create([
-                'name' => $faker->name,
-                'email' => $faker->unique()->email,
-                'password' => Hash::make('password'),
-            ]);
+        for ($i = 1; $i <= 10000; $i++) {
+            if($i == 1)
+            {
+                User::create([
+                    'name' => "SaherUser",
+                    'email' => "SaherUser@test.com",
+                    'password' => Hash::make('password'),
+                ]);
+            }
+            else {
+                User::create([
+                    'name' => $faker->name,
+                    'email' => $faker->unique()->email,
+                    'password' => Hash::make('password'),
+                ]);
+            }
         }
 
         // Create 100 admins
-        for ($i = 1; $i <= 2; $i++) {
-            User::create([
-                'name' => $faker->name,
-                'email' => "admin$i@example.com",
-                'password' => Hash::make('password'),
-                'is_admin' => true,
-            ]);
+        for ($i = 1; $i <= 100; $i++) {
+
+            if($i == 1)
+            {
+                User::create([
+                    'name' => "SaherAdmin",
+                    'email' => "SaherAdmin@example.com",
+                    'password' => Hash::make('password'),
+                    'is_admin' => true,
+                ]);
+            }
+            else {
+                User::create([
+                    'name' => $faker->name,
+                    'email' => "admin$i@example.com",
+                    'password' => Hash::make('password'),
+                ]);
+            }
         }
     }
 }

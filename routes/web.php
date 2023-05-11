@@ -27,12 +27,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('tasks/create', 'App\Http\Controllers\TaskController@create')->name('tasks.create')->middleware('admin');;
-    Route::post('tasks', 'App\Http\Controllers\TaskController@store')->name('tasks.store');
-//    Route::get('tasks/statistics', 'App\Http\Controllers\TaskController@statistics')->name('tasks.statistics');
-    Route::get('statistics', 'App\Http\Controllers\StatisticController@index')->name('statistics.index');
+    Route::get('tasks/create', 'App\Http\Controllers\TaskController@create')->name('tasks.create')->middleware('admin');
     Route::get('tasks', 'App\Http\Controllers\TaskController@index')->name('tasks.index');
+    Route::post('tasks', 'App\Http\Controllers\TaskController@store')->name('tasks.store')->middleware('admin');
+    Route::get('statistics', 'App\Http\Controllers\StatisticController@index')->name('statistics.index');
 });
+
+
 
 
 

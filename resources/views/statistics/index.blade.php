@@ -18,7 +18,7 @@
                             <tbody>
                             @foreach ($statistics as $statistic)
                                 <tr>
-                                    <td>{{ $statistic->user->name }}</td>
+                                    <td>{{ $statistic->user ? $statistic->user->name : '' }}</td>
                                     <td>{{ $statistic->count }}</td>
                                 </tr>
                             @endforeach
