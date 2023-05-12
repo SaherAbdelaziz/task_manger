@@ -16,6 +16,7 @@
 
 ## Running the project
 - simply two commands to run the project
+- 'php artisan migrate'
 - 'php artisan db:seed --class=UsersTableSeeder --no-interaction' [to seed the database with users] take care this would take a while
 - 'php artisan serve' [to run the project]
 
