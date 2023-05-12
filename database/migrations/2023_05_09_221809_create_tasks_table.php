@@ -20,6 +20,9 @@ class CreateTasksTable extends Migration
             $table->unsignedBigInteger('assigned_to_id');
             $table->unsignedBigInteger('assigned_by_id');
             $table->timestamps();
+
+            $table->foreign('assigned_to_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('assigned_by_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
