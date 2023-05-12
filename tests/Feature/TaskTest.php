@@ -12,6 +12,16 @@ class TaskTest extends TestCase
 {
     use DatabaseTransactions;
 
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('database.default', 'sqlite');
+        $app['config']->set('database.connections.sqlite', [
+            'driver' => 'sqlite',
+            'database' => ':memory:',
+            'prefix' => '',
+        ]);
+    }
+
     /** @test */
     public function an_auth_user_cant_access_tasks_create()
     {
