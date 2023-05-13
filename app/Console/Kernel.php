@@ -2,12 +2,18 @@
 
 namespace App\Console;
 
+use App\Console\Commands\StartApp;
 use App\Jobs\UpdateStatisticsJob;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+    protected $commands = [
+        // ...
+        StartApp::class,
+    ];
+
     /**
      * Define the application's command schedule.
      *

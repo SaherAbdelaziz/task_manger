@@ -20,6 +20,10 @@
 - 'php artisan db:seed --class=UsersTableSeeder --no-interaction' [to seed the database with users] take care this would take a while
 - 'php artisan serve' [to run the project]
 
+- or you can run the project using only one command
+- php artisan app:start
+- this is custom command that will run the above commands for you
+
 
 ## background jobs
 - to run the background jobs you need to run the following command
